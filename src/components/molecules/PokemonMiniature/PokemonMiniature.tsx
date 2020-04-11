@@ -17,7 +17,7 @@ const StyledContainer = styled(Box)`
 
 export const PokemonMiniature: FC<PokemonMiniatureProps> = ({ shiny, avatar, ...props }) => {
   return (
-    <StyledContainer>
+    <StyledContainer {...props}>
       <Typography variant='body2'>{shiny ? 'Shiny' : 'Common'}</Typography>
       <Box>
         <PokemonAvatar url={avatar} />

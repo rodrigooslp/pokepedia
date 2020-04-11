@@ -18,7 +18,7 @@ const StyledTypography = styled(Typography)`
 `;
 
 export const AbilityList: FC<AbilityListProps> = ({ abilities, ...props }) =>
-  <Box>
+  <Box {...props}>
     <StyledTypography variant='body2'>Abilities</StyledTypography>
     <List>
       {abilities.map((ability: Ability) =>
