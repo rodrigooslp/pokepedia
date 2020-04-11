@@ -16,7 +16,7 @@ type CardBackProps = {
 };
 
 const StyledCard = styled(Card)`
-  max-width: 340px;
+  width: 340px;
   height: 540px;
   display: flex;
   flex-direction: column;
@@ -46,27 +46,24 @@ const StyledButtonContainer = styled(Box)`
   padding: 1rem;
 `;
 
-export const CardBack: FC<CardBackProps> = ({ name, number, types, avatar, stats, abilities, handleActionClick, ...props }) => {
-  return (
-    <StyledCard>
-      <StyledPokemonInfo name={name} number={number} types={types} />
+export const CardBack: FC<CardBackProps> = ({ name, number, types, avatar, stats, abilities, handleActionClick, ...props }) =>
+  <StyledCard>
+    <StyledPokemonInfo name={name} number={number} types={types} />
 
-      <StyledContentContainer>
-        <Box>
-          <PokemonMiniature avatar={avatar.common} />
-          <PokemonMiniature shiny avatar={avatar.shiny}/>
-        </Box>
+    <StyledContentContainer>
+      <Box>
+        <PokemonMiniature avatar={avatar.common} />
+        <PokemonMiniature shiny avatar={avatar.shiny}/>
+      </Box>
 
-        <StyledStatsContainer>
-          <PokemonStats stats={stats} />
-        </StyledStatsContainer>
-      </StyledContentContainer>
+      <StyledStatsContainer>
+        <PokemonStats stats={stats} />
+      </StyledStatsContainer>
+    </StyledContentContainer>
 
-      <StyledAbilityTabs abilities={abilities} />
+    <StyledAbilityTabs abilities={abilities} />
 
-      <StyledButtonContainer>
-        <ActionButton handleClick={handleActionClick}>COVER</ActionButton>
-      </StyledButtonContainer>
-    </StyledCard>
-  );
-}
+    <StyledButtonContainer>
+      <ActionButton handleClick={handleActionClick}>COVER</ActionButton>
+    </StyledButtonContainer>
+  </StyledCard>
