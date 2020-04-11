@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider, StylesProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addParameters, addDecorator } from '@storybook/react';
@@ -15,6 +15,8 @@ addParameters({
 addDecorator(story =>
   <ThemeProvider theme={theme}>
       <CssBaseline />
-      {story()}
+      <StylesProvider injectFirst>
+        {story()}
+      </StylesProvider>
   </ThemeProvider>
 );
