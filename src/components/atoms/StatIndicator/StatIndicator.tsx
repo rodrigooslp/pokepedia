@@ -1,10 +1,15 @@
 import { LinearProgress, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import { grey, red, orange, amber, green, blue } from '@material-ui/core/colors';
 import React, { FC } from 'react';
+import styled from 'styled-components';
 
 type StatIndicatorProps = {
   value: number;
 };
+
+const StyledLinearProgress = styled(LinearProgress)`
+  height: 8px;
+`;
 
 export const StatIndicator: FC<StatIndicatorProps> = ({ value, ...props }) => {
   const getColor = (value: number) => {
@@ -27,7 +32,7 @@ export const StatIndicator: FC<StatIndicatorProps> = ({ value, ...props }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <LinearProgress variant="determinate" value={value} {...props}/>
+      <StyledLinearProgress variant="determinate" value={value} {...props}/>
     </ThemeProvider>
   );
 }
