@@ -12,16 +12,20 @@ const StyledLinearProgress = styled(LinearProgress)`
 `;
 
 export const StatIndicator: FC<StatIndicatorProps> = ({ value, ...props }) => {
+  // Como 255 é o valor máximo de status de um pokémon e o indicador linear é 100
+  // é necessário colocar esse valor num range de 0-100.
+  const percentageValue = (value / 255) * 100;
+
   const getColor = (value: number) => {
     if (value === 0) return grey;
-    if (value < 25) return red;
-    if (value < 40) return orange;
-    if (value < 60) return amber;
-    if (value < 90) return green;
+    if (value < 10) return red;
+    if (value < 20) return orange;
+    if (value < 30) return amber;
+    if (value < 50) return green;
     return blue;
   };
 
-  const color = getColor(value);
+  const color = getColor(percentageValue);
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -32,7 +36,7 @@ export const StatIndicator: FC<StatIndicatorProps> = ({ value, ...props }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledLinearProgress variant="determinate" value={value} {...props}/>
+      <StyledLinearProgress variant="determinate" value={percentageValue} {...props}/>
     </ThemeProvider>
   );
 }
