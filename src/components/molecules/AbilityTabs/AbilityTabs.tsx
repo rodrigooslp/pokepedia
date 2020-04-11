@@ -35,6 +35,7 @@ export const AbilityTabs: FC<AbilityTabsProps> = ({ abilities, ...props }) => {
       <Tabs
         textColor='primary'
         indicatorColor='primary'
+        variant="fullWidth"
         onChange={handleChange}
         value={value}>
           {abilities.map((ability: Ability) => <Tab label={ability.name} />)}
