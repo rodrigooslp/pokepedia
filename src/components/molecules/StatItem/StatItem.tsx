@@ -12,8 +12,16 @@ const StyledTypography = styled(Typography)`
   margin-bottom: 5px;
 `;
 
+const StyledContainer = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const StatItem: FC<StatItemProps> = ({ name, value, ...props }) =>
   <Box {...props}>
-    <StyledTypography variant='body2'>{name}</StyledTypography>
+    <StyledContainer>
+      <StyledTypography variant='body2'>{name}</StyledTypography>
+      <StyledTypography variant='body2'>{value}</StyledTypography>
+    </StyledContainer>
     <StatIndicator value={value} />
   </Box>;
