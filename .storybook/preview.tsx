@@ -1,7 +1,10 @@
+import { ThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addParameters, addDecorator } from '@storybook/react';
 import React from 'react';
+
+import { theme } from '../src/theme';
 
 addParameters({
   viewport: {
@@ -10,8 +13,8 @@ addParameters({
 });
 
 addDecorator(story =>
-  <>
-    <CssBaseline />
-    {story()}
-  </>
+  <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {story()}
+  </ThemeProvider>
 );
