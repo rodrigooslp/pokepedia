@@ -1,4 +1,4 @@
-export type ElementTypes =
+export type ElementType =
   'normal' |
   'fighting' |
   'flying' |

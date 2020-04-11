@@ -1,1 +1,1 @@
-export * from './ElementTypes';
+export * from './ElementType';

@@ -20,10 +20,10 @@ import dragonBadge from 'assets/types/dragon.png';
 import darkBadge from 'assets/types/dark.png';
 import fairyBadge from 'assets/types/fairy.png';
 
-import { ElementTypes } from 'models';
+import { ElementType } from 'models';
 
 type TypeBadgeProps = {
-  type: ElementTypes;
+  type: ElementType;
 };
 
 const StyledTypeBadge = styled.img`
@@ -33,7 +33,7 @@ const StyledTypeBadge = styled.img`
 `;
 
 export const TypeBadge: FC<TypeBadgeProps> = ({ type, ...props }) => {
-  const getBadgeImage = (type: ElementTypes) => {
+  const getBadgeImage = (type: ElementType) => {
     switch (type) {
       case 'normal': return normalBadge;
       case 'fighting': return fightingBadge;
