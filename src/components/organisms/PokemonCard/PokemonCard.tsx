@@ -11,8 +11,7 @@ type PokemonCardProps = {
   avatar: Avatar;
   stats: Stats;
   abilities: Ability[];
-  showStats: () => void;
-  showCover: () => void;
+  showStats: (number: number) => void;
 };
 
 const Scene = styled.div`
@@ -46,17 +45,18 @@ const Back = styled.div`
 `;
 
 
-export const PokemonCard: FC<PokemonCardProps> = ({ name, number, types, cover, avatar, stats, abilities, showStats, showCover, ...props }) => {
+export const PokemonCard: FC<PokemonCardProps> = ({ name, number, types, cover, avatar, stats, abilities, showStats, ...props }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   const flip = () => {
+    if (isFlipped) showStats(number);
     setIsFlipped(!isFlipped);
   };
 
   return (
     <>
       <Scene>
-        <Card style={{ transform: !isFlipped ? 'rotateX(180deg)' : 'rotateX(0deg)' }}>
+        <Card style={{ transform: isFlipped ? 'rotateX(180deg)' : 'rotateX(0deg)' }}>
           <Front>
             <CardFront
               name={name}

@@ -15,7 +15,7 @@ const abilities: Ability[] = [{
   hidden: true
 }, {
   name: 'Torrent',
-  // loading: true,
+  loading: true,
   description: 'When this Pokémon has 1/3 or less of its HP remaining, its water-type moves inflict 1.5× as much regular damage.'
 }];
 
@@ -45,5 +45,4 @@ export const Default = () =>
     abilities={abilities}
     cover={cover}
     showStats={action('clicked show stats')}
-    showCover={action('clicked show cover')}
   />;
