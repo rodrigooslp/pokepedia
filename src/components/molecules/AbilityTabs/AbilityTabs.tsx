@@ -38,15 +38,15 @@ export const AbilityTabs: FC<AbilityTabsProps> = ({ abilities, ...props }) => {
         variant="fullWidth"
         onChange={handleChange}
         value={value}>
-          {abilities.map((ability: Ability) => <Tab label={ability.name} />)}
+          {abilities.map((ability: Ability, index: number) => <Tab selected={index === value} label={ability.name} key={index} />)}
       </Tabs>
 
       {
         abilities.map((ability: Ability, index: number) => {
           if (index !== value) return null;
-          if (ability.loading) return <StyledSkeleton variant='rect' animation='wave'/>;
+          if (ability.loading) return <StyledSkeleton key={index} variant='rect' animation='wave'/>;
 
-          return <StyledTypography variant='body2'>{ability.description}</StyledTypography>;
+          return <StyledTypography key={index} variant='body2'>{ability.description}</StyledTypography>;
         })
       }
     </StyledContainer>

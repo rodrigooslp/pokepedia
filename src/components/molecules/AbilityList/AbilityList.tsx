@@ -21,11 +21,11 @@ export const AbilityList: FC<AbilityListProps> = ({ abilities, ...props }) =>
   <Box {...props}>
     <StyledTypography variant='body2'>Abilities</StyledTypography>
     <List>
-      {abilities.map((ability: Ability) =>
-        <>
+      {abilities.map((ability: Ability, index: number) =>
+        <Box key={index}>
           <AbilityListItem name={ability.name} hidden={ability.hidden} />
           <StyledDivider />
-        </>
+        </Box>
       )}
     </List>
   </Box>;
