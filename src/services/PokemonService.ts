@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RawPokemon, RawPokemonList } from 'models';
+import { RawPokemon, RawPokemonList, RawGetAbility } from 'models';
 import { Mapper } from 'utils';
 
 axios.defaults.baseURL = 'https://pokeapi.co/api/v2';
@@ -19,5 +19,13 @@ export class PokemonService {
   public static async getPokemon (url: string) {
     const { data }: { data: RawPokemon } = await axios.get(url);
     return Mapper.mapPokemonFromRaw(data);
+  }
+
+  public static async getAbility (url?: string) {
+    if (!url) return '';
+
+    const { data }: { data: RawGetAbility } = await axios.get(url);
+    if (data.effect_entries.length > 0) return data.effect_entries[0].effect
+    return ''
   }
 }

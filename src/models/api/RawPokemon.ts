@@ -32,3 +32,11 @@ export type RawPokemon = {
   stats: RawStat[];
   types: RawType[];
 };
+
+export type RawGetAbilityItem = {
+  effect: string;
+}
+
+export type RawGetAbility = {
+  effect_entries: RawGetAbilityItem[]
+}

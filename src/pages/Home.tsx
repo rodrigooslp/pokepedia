@@ -24,7 +24,34 @@ export const Home: FC<HomeProps> = (props) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleShowStats = (number: number) => {
+    const pokemon = pokemons.find((item) => item.number === number);
+    if (!pokemon) return;
 
+    const abilities = pokemon.abilities.map((item) => ({ ...item, loading: true }));
+
+    setTimeout(() => {
+      updatePokemon({ ...pokemon, abilities });
+      resolveAbilityDescriptions({ ...pokemon, abilities });
+    }, 500);
+  };
+
+  const resolveAbilityDescriptions = async (pokemon: Pokemon) => {
+    const promises = pokemon.abilities.map((item) => PokemonService.getAbility(item.url))
+    const descriptions = await Promise.all(promises);
+
+    descriptions.forEach((item: string, index: number) => {
+      pokemon.abilities[index].description = item;
+      pokemon.abilities[index].loading = false;
+    });
+
+    updatePokemon(pokemon);
+  }
+
+  const updatePokemon = (pokemon: Pokemon) => {
+    setPokemons(pokemons.map((item) => {
+      if (item.number === pokemon.number) return pokemon;
+      else return item;
+    }));
   };
 
   const loadPokemons = async (url?: string) => {

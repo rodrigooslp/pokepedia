@@ -49,7 +49,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, number, types, cover, 
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   const flip = () => {
-    if (isFlipped) showStats(number);
+    if (!isFlipped) showStats(number);
     setIsFlipped(!isFlipped);
   };
 
