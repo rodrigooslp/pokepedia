@@ -17,15 +17,20 @@ const StyledTypography = styled(Typography)`
   margin-left: 16px;
 `;
 
+const StyledList = styled(List)`
+  max-height: 150px;
+  overflow: hidden;
+`;
+
 export const AbilityList: FC<AbilityListProps> = ({ abilities, ...props }) =>
   <Box {...props}>
     <StyledTypography variant='body2'>Abilities</StyledTypography>
-    <List>
+    <StyledList>
       {abilities.map((ability: Ability, index: number) =>
         <Box key={index}>
           <AbilityListItem name={ability.name} hidden={ability.hidden} />
           <StyledDivider />
         </Box>
       )}
-    </List>
+    </StyledList>
   </Box>;
