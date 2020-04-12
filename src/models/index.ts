@@ -3,3 +3,5 @@ export * from './Avatar';
 export * from './ElementType';
 export * from './Pokemon';
 export * from './Stats';
+
+export * from './api';

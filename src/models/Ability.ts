@@ -3,4 +3,5 @@ export type Ability = {
   hidden?: boolean;
   description?: string;
   loading?: boolean;
+  url?: string;
 }
