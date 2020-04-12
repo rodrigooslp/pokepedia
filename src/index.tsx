@@ -2,7 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
+import { ThemeProvider, CssBaseline, StylesProvider } from '@material-ui/core';
+import { theme } from 'theme';
+import { Home } from 'pages';
 // import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(null, document.getElementById('root'));
+const App = (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <StylesProvider injectFirst>
+      <Home />
+    </StylesProvider>
+  </ThemeProvider>
+);
+ReactDOM.render(App, document.getElementById('root'));
 // serviceWorker.register();
