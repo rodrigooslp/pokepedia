@@ -17,6 +17,8 @@ const StyledContainer = styled(Box)`
 const StyledTypography = styled(Typography)`
   padding: 1rem;
   flex-grow: 1;
+  max-height: 100px;
+  overflow-y: scroll;
 `;
 
 const StyledSkeleton = styled(Skeleton)`
