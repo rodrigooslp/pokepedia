@@ -4,7 +4,6 @@ import { Mapper } from 'utils';
 
 axios.defaults.baseURL = 'https://pokeapi.co/api/v2';
 
-
 export class PokemonService {
 
   public static async getPokemonList (next?: string): Promise<RawPokemonList> {
@@ -12,7 +11,7 @@ export class PokemonService {
       const { data } = await axios.get(next);
       return data;
     } else {
-      const { data } = await axios.get('/pokemon');
+      const { data } = await axios.get('/pokemon?limit=10');
       return data;
     }
   }

@@ -32,8 +32,8 @@ export const Home: FC<HomeProps> = (props) => {
     const { next, results } = await PokemonService.getPokemonList(url);
     setNext(next);
 
-    // const promises = results.map((item) => PokemonService.getPokemon(item.url));
-    // addPokemons(await Promise.all(promises));
+    const promises = results.map((item) => PokemonService.getPokemon(item.url));
+    addPokemons(await Promise.all(promises));
     setLoading(false);
   };
 
