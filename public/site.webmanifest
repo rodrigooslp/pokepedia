@@ -1,0 +1,14 @@
+{
+    "name": "Pok\u00e9pedia",
+    "short_name": "Pok\u00e9pedia",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#42a5f5",
+    "background_color": "#42a5f5",
+    "display": "standalone"
+}
