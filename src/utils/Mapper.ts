@@ -1,11 +1,10 @@
-import { RawPokemon, Pokemon, Ability, RawAbility, RawType, ElementType, RawStat } from "models";
-
-
+import { RawPokemon, Pokemon, Ability, RawAbility, RawType, ElementType, RawStat } from 'models';
+import { Formatter } from './Formatter';
 
 export abstract class Mapper {
   public static mapPokemonFromRaw (raw: RawPokemon) {
     const pokemon: Pokemon = {
-      name: raw.name,
+      name: Formatter.toStartCase(raw.name),
       number: raw.id,
       avatar: {
         common: raw.sprites.front_default,
@@ -35,7 +34,7 @@ export abstract class Mapper {
 
   private static mapAbilityFromRaw (raw: RawAbility) {
     const ability: Ability = {
-      name: raw.ability.name,
+      name: Formatter.toStartCase(raw.ability.name),
       url: raw.ability.url,
       hidden: raw.is_hidden
     };
