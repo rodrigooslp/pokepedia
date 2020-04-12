@@ -13,9 +13,11 @@ export const Home: FC<HomeProps> = (props) => {
 
   };
 
-  const loadPokemons = async () => {
-    const list = await PokemonService.getPokemonList();
-    const promises = list.results.map((item) => PokemonService.getPokemon(item.url));
+  const loadPokemons = async (url?: string) => {
+    const { next, results } = await PokemonService.getPokemonList(url);
+    setNext(next);
+
+    const promises = results.map((item) => PokemonService.getPokemon(item.url));
     setPokemons(await Promise.all(promises));
   };
 
