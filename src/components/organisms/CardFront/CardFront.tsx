@@ -17,6 +17,8 @@ type CardFrontProps = {
 const StyledCard = styled(Card)`
   width: 340px;
   height: 540px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledPokemonInfo = styled(PokemonInfo)`
@@ -35,6 +37,13 @@ const StyledButtonContainer = styled(Box)`
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
+  flex-grow: 1;
+`;
+
+const StyledActionContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 
 export const CardFront: FC<CardFrontProps> = ({ name, number, types, cover, abilities, handleActionClick, ...props }) =>
@@ -47,7 +56,9 @@ export const CardFront: FC<CardFrontProps> = ({ name, number, types, cover, abil
 
     <AbilityList abilities={abilities} />
 
-    <StyledButtonContainer>
-      <ActionButton handleClick={handleActionClick}>STATS</ActionButton>
-    </StyledButtonContainer>
+      <StyledButtonContainer>
+        <StyledActionContainer>
+          <ActionButton handleClick={handleActionClick}>STATS</ActionButton>
+        </StyledActionContainer>
+      </StyledButtonContainer>
   </StyledCard>
