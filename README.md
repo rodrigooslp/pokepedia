@@ -8,7 +8,7 @@ O que facilitou e muito a execução rápida deste projeto foi o uso de conceito
 As ferramentas extras utilizadas foram: Adobe XD e Github Project.
 
 # Demo
-A integração contínua foi configurada e foi feito um deploy da aplicação [aqui](https://my-pokepedia.netlify.com/).
+A integração contínua foi configurada e foi feito um deploy da aplicação [aqui](https://my-pokepedia.netlify.com/). Uma página de documentação também está disponível [aqui](https://my-pokepedia-docs.netlify.app/).
 
 # Setup do projeto
 `yarn install`
